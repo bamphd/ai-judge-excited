@@ -1,32 +1,37 @@
 # The Orb in the Crystal Library
 
-An entry for [make.fun's "Make the AI judge excited" bounty](https://make.fun/bounty/ai-excited-01) (`ai-excited-01`).
+An entry for make.fun's **ai-excited-01** — "Make the AI judge excited":
+one image, made to hit the judge with a jolt of awe at first glance and
+still read clearly at 300 pixels wide.
 
 ## The image
 
-Deep inside a giant crystal cavern glows a bioluminescent library — towering
-shelves of violet and teal crystal, thousands of softly lit books. A tiny
-curious robot stands on a crystal bridge, one arm raised toward a huge
-floating orb: a whole spiral galaxy, swirling with stars, hanging in the
-dark like the library's brightest book. A ribbon of golden books streams up
-from the robot's hand toward the orb, caught in the light.
+Inside a giant crystal cavern, a bioluminescent library towers on both
+sides — bookshelves carved into violet crystal, books glowing cyan,
+magenta and gold. A tiny white-and-gold robot stands on a golden ledge
+and reaches up toward a floating cosmic orb: a whole spiral galaxy,
+bursting with golden rays. A beam of sparkles connects the robot's
+raised hand to the orb, and open books drift in the air around it.
 
-One look, one idea: **every book hides a universe.** The caption is drawn
-programmatically (never AI-rendered text) so it stays crisp at any size.
+The idea: every book hides a universe, and the smallest reader can touch
+one. The caption is drawn on programmatically (never AI-rendered text):
 
-## How it works
+> EVERY BOOK HIDES A UNIVERSE.
 
-The repository holds the finished image (`entry.png`, a 1024×1024 JPEG under
-the required name, well inside the 1 MiB gate) and a small Node 22 program
-(`main.ts`, standard library only) that copies it verbatim to `/output`.
-The program is deterministic: every run writes the same bytes.
+## Files
 
-Run it locally:
+- `entry.png` — the image itself (JPEG bytes under the `entry.png` name;
+  the gate tells PNG from JPEG by magic bytes). 1024×1024, under 1 MiB.
+- `main.py` — the entrypoint (Python 3.13, standard library only). It
+  copies `entry.png` beside it to `$MAKEFUN_OUTPUT_DIR`, or `/output`
+  when that variable is unset. It writes the same bytes on every run.
+- `LICENSE` — MIT.
+
+## Run it
 
 ```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 ```
 
-## License
-
-MIT — see [LICENSE](LICENSE).
+The output lands at `out/entry.png`, byte-identical to the `entry.png`
+in this repository.
